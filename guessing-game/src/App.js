@@ -25,6 +25,12 @@ function App() {
   });
 
   const addPosts = () => { 
+    if (guess === "") {
+      alert("The guess area should not be empty!!");
+
+      return
+    }
+
     if(apiData + 5 >= parseFloat(guess) && apiData - 5 <= parseFloat(guess)){ 
       setPosts((posts) => [...posts, { guess, temp: apiData, isValid: true }]);
       setResult(++result);

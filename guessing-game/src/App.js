@@ -57,16 +57,20 @@ function App() {
   if (cityIndex === 5) {
     if (result >= 2) {
       return (
-        <div>
-          <span>You win</span>
-          <button onClick={newGame}>New Game</button>
+        <div className="result-container">
+          <div className="result">
+            <span className="result-message win">You win</span>
+            <button onClick={newGame} className="new-game-button">New Game</button>
+          </div>
         </div>
       );
     } else {
       return (
-        <div>
-          <span>You lost</span>
-          <button onClick={newGame}>New Game</button>
+        <div className="result-container">
+          <div className="result">
+            <span className="result-message lost">You lost</span>
+            <button onClick={newGame} className="new-game-button">New Game</button>
+          </div>
         </div>
       );
     }
@@ -74,23 +78,25 @@ function App() {
 
   return (
     <div className="app">
-      <div>
-        <h1>Main area box</h1>
+      <div className="app-container">
+        <h1 className="headline">Main area box</h1>
         <p className="city-name">{city[cityIndex]}</p>
-        <input
-          type="text"
-          onChange={(e) => setGuess(e.target.value)}
-          value={guess}
-          placeholder="Your guess text book"
-          className="input-value"
-        />
-        <button type="submit" onClick={handleSubmit} className="button">
-          Check
-        </button>
+        <div className="form-container">
+          <input
+            type="text"
+            onChange={(e) => setGuess(e.target.value)}
+            value={guess}
+            placeholder="Your guess text book"
+            className="guess-input"
+          />
+          <button type="submit" onClick={handleSubmit} className="submit-button">
+            Check
+          </button>
+        </div>
       </div>
       <div className="guesses">
       {posts.map((post, index) => (
-          <div key={index}>
+          <div key={index} className="guess-box">
             {post.isValid ? (
               <>
               <span className="guess-temp correct">{post.guess}</span>

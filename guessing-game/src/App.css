@@ -5,3 +5,142 @@
 .wrong {
   color: red;
 }
+
+.app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  height: fit-content;
+
+  margin: 30px;
+
+  font-family: cursive;
+}
+
+.app-container {
+  padding: 50px;
+  border: 3px solid #20B2AA;
+  border-radius: 30px;
+}
+
+.headline {
+  font-size: 20px;
+  color: coral;
+}
+
+.city-name {
+  text-align: center;
+  font-size: 28px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+
+  justify-self: center;
+  align-items: center;
+}
+
+.guess-input {
+  width: 300px;
+  height: 50px;
+
+  border-radius: 10px;
+  border: 2px solid yellow;
+
+  font-family: cursive;
+  font-size: 20px;
+  text-align: center;
+}
+
+.guess-input:focus {
+  border: 2px solid yellow;
+}
+
+.guess-input::placeholder {
+  font-size: 20px;
+}
+
+.submit-button, .new-game-button {
+  padding: 10px 30px;
+
+  width: fit-content;
+
+  background-color: transparent;
+  border-radius: 10px;
+  border: 3px solid purple;
+
+  font-size: 20px;
+  font-family: cursive;
+  color: purple;
+
+}
+
+.submit-button:hover, .new-game-button:hover {
+  background-color: #DB7093;
+  color: white;
+
+  transition: all 0.5s;
+}
+
+.guesses {
+  display: flex;
+  gap: 10px;
+
+  margin: 30px;
+  padding: 10px;
+
+  width: 500px;
+
+  border-top: 3px solid #20B2AA;
+}
+
+.guess-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 20px;
+}
+
+.result-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  padding: 100px;
+  margin: 50px;
+
+  border: 3px solid #20B2AA;
+  border-radius: 30px;
+}
+
+.result-message {
+  font-size: 40px;
+  font-family: cursive;
+
+  
+}
+
+.win {
+  color: green;
+}
+
+.lost {
+  color: red;
+}
+
+

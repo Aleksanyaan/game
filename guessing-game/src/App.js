@@ -5,12 +5,12 @@ function App() {
   
   const APIKey = "793d85827e162e26a65fde3fa1dd7975";
   const city = ["London", "Yerevan", "Seoul", "New York", "Paris"];
-  let result = 0;
 
   const [apiData, setApiData] = useState();
   const [posts, setPosts] = useState([]);
   let [guess, setGuess] = useState('');
   let [cityIndex, setCityIndex] = useState(0);
+  let [result, setResult] = useState(0);
 
   useEffect(() => {
     const currentCity = city[cityIndex];
@@ -27,11 +27,12 @@ function App() {
   const addPosts = () => { 
     if(apiData + 5 >= parseFloat(guess) && apiData - 5 <= parseFloat(guess)){ 
       setPosts((posts) => [...posts, { guess, temp: apiData, isValid: true }]);
-      result++;
+      setResult(++result);
     }else{ 
       setPosts((posts) => [...posts, { guess, temp: apiData, isValid: false }]); 
     } 
     setCityIndex(++cityIndex);
+    setGuess('');
   }
 
   const handleSubmit = (e) => {
@@ -39,17 +40,27 @@ function App() {
     addPosts();
   };
 
+  const newGame = () => {
+    setApiData('');
+    setPosts([]);
+    setGuess('');
+    setCityIndex(0);
+    setResult(0);
+  }
+
   if (cityIndex === 5) {
     if (result >= 2) {
       return (
         <div>
           <span>You win</span>
+          <button onClick={newGame}>New Game</button>
         </div>
       );
     } else {
       return (
         <div>
           <span>You lost</span>
+          <button onClick={newGame}>New Game</button>
         </div>
       );
     }
@@ -63,6 +74,7 @@ function App() {
         <input
           type="text"
           onChange={(e) => setGuess(e.target.value)}
+          value={guess}
           placeholder="Your guess text book"
           className="input-value"
         />
